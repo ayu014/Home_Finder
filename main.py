@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 Zillow = "https://appbrewery.github.io/Zillow-Clone/"
+g_form ="https://forms.gle/FcNoH74S7sE3rokq6"
 
 
 chrome_options = webdriver.ChromeOptions()
@@ -21,7 +22,6 @@ header = {
 class Property:
     def __init__(self):
         self.driver = webdriver.Chrome(options=chrome_options)
-        self.Max_Amount = 3000
         
     
     def find_home(self):
@@ -41,7 +41,12 @@ class Property:
 
             all_link_elements = soup.select(".StyledPropertyCardPhotoBody a")
             all_link = [link["href"].strip() for link in all_link_elements]
-            print(all_link)
+            # print(all_link)
+
+
+    
+                
+
 
             
 
