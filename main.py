@@ -29,6 +29,7 @@ class Property:
             # print(response.status_code)
             content = response.text
             soup = BeautifulSoup(content,"html.parser")
+            soup.prettify()
             # print(content)
             all_address_elements = soup.select(".StyledPropertyCardDataWrapper a")
             all_address = [address.text.replace("|"," ").strip() for address in all_address_elements]
@@ -36,7 +37,11 @@ class Property:
 
             all_price_elements = soup.select(".PropertyCardWrapper span")
             all_price = [price.text.replace("/mo","").split("+")[0].strip() for price in all_price_elements]
-            print(all_price)
+            # print(all_price)
+
+            all_link_elements = soup.select(".StyledPropertyCardPhotoBody a")
+            all_link = [link["href"].strip() for link in all_link_elements]
+            print(all_link)
 
             
 
