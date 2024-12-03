@@ -35,8 +35,8 @@ class Property:
             # print(all_address)
 
             all_price_elements = soup.select(".PropertyCardWrapper span")
-            all_price = [price.text.replace("+/mo","").strip() for price in all_price_elements]
-            print(all_price[0])
+            all_price = [price.text.replace("/mo","").split("+")[0].strip() for price in all_price_elements]
+            print(all_price)
 
             
 
